@@ -1,5 +1,7 @@
 var toggleBtn = document.querySelector('#toggleBtn');
 var nav = document.querySelector('#nav');
+var navContent = document.querySelector('#navContent');
+var body = document.querySelector('body');
 
 var expandBtn = document.getElementById('expandBtn');
 var expandItem = document.querySelectorAll('#expandItem');
@@ -25,22 +27,25 @@ document.onclick = function(e) {
     if (e.target.id === 'toggleBtn') {
         nav.classList.toggle('hidden');
         nav.classList.toggle('transition-all');
+        document.body.classList.toggle('overflow-hidden');
+        navContent.classList.toggle('overflow-y-auto');
     }
     // toggle display for the accordion item thingy
     for (i = 0; i < expandItem.length; i++) {
         expandItem[i].addEventListener("click", function() {
             var content = this.nextElementSibling;
-            expandBtn.classList.toggle('rotate-180');
             content.classList.toggle('hidden')
+            expandBtn.classList.toggle('rotate-180');
+
         });
     }
 };
 // var nav = document.querySelector('#nav');
-// var body = document.querySelector('body');
+
 
 // toggleBtn.addEventListener('click', function() {
 //     nav.classList.toggle('hidden');
-//     document.body.classList.toggle('overflow-hidden');
+//     
 //     // body.classList.toggle('opacity-50');
 //     alert('holaaa')
 //     console.log('open navbar');
